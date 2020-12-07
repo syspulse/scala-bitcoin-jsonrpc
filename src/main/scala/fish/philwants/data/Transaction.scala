@@ -9,7 +9,7 @@ object ScriptSignature extends DefaultJsonProtocol {
   implicit val scriptSignatureFormat = jsonFormat2(ScriptSignature.apply)
 }
 
-final case class PublicKey(hex: String, asm: String, `type`: String, reqSigs: Int, addresses: Seq[String])
+final case class PublicKey(hex: String, asm: String, `type`: String, reqSigs: Option[Int], addresses: Option[Seq[String]])
 
 object PublicKey extends DefaultJsonProtocol {
   implicit val publicKeyFormat = jsonFormat5(PublicKey.apply)

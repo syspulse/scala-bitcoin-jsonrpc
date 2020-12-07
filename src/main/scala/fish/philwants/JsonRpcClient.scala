@@ -22,6 +22,8 @@ final case class JsonRpcClient(uri: String, username: String, password: String) 
         throw t
     }
 
+    logger.debug(s"body=${body}")
+
     try {
       body.parseJson.convertTo[RpcResponse[T]]
     } catch {
